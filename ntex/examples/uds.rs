@@ -27,7 +27,7 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .wrap(middleware::DefaultHeaders::new().header("X-Version", "0.2"))
             .wrap(middleware::Logger::default())
-            .service((index, no_params))
+            .service(index)
             .service(
                 web::resource("/resource2/index.html")
                     .wrap(middleware::DefaultHeaders::new().header("X-Version-R2", "0.3"))

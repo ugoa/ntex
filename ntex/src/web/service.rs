@@ -342,12 +342,1023 @@ where
 }
 
 #[allow(non_snake_case)]
-#[rustfmt::skip]
+// #[rustfmt::skip]
 mod m {
     use super::*;
     use variadics_please::all_tuples_enumerated;
 
-    all_tuples_enumerated!(#[doc(fake_variadic)] tuple_web_service, 1, 24, T);
+    // all_tuples_enumerated!(#[doc(fake_variadic)] tuple_web_service, 1, 24, T);
+
+    #[cfg_attr(any(docsrs, docsrs_dep), doc(fake_variadic))]
+    #[cfg_attr(
+        any(docsrs, docsrs_dep),
+        doc = "This trait is implemented for tuples up to 24 items long."
+    )]
+    impl<Err: ErrorRenderer, T: WebServiceFactory<Err> + 'static> WebServiceFactory<Err>
+        for (T,)
+    {
+        fn register(self, config: &mut WebServiceConfig<Err>) {
+            self.0.register(config);
+        }
+    }
+    #[cfg_attr(any(docsrs, docsrs_dep), doc(hidden))]
+    impl<
+        Err: ErrorRenderer,
+        T0: WebServiceFactory<Err> + 'static,
+        T1: WebServiceFactory<Err> + 'static,
+    > WebServiceFactory<Err> for (T0, T1)
+    {
+        fn register(self, config: &mut WebServiceConfig<Err>) {
+            self.0.register(config);
+            self.1.register(config);
+        }
+    }
+    #[cfg_attr(any(docsrs, docsrs_dep), doc(hidden))]
+    impl<
+        Err: ErrorRenderer,
+        T0: WebServiceFactory<Err> + 'static,
+        T1: WebServiceFactory<Err> + 'static,
+        T2: WebServiceFactory<Err> + 'static,
+    > WebServiceFactory<Err> for (T0, T1, T2)
+    {
+        fn register(self, config: &mut WebServiceConfig<Err>) {
+            self.0.register(config);
+            self.1.register(config);
+            self.2.register(config);
+        }
+    }
+    #[cfg_attr(any(docsrs, docsrs_dep), doc(hidden))]
+    impl<
+        Err: ErrorRenderer,
+        T0: WebServiceFactory<Err> + 'static,
+        T1: WebServiceFactory<Err> + 'static,
+        T2: WebServiceFactory<Err> + 'static,
+        T3: WebServiceFactory<Err> + 'static,
+    > WebServiceFactory<Err> for (T0, T1, T2, T3)
+    {
+        fn register(self, config: &mut WebServiceConfig<Err>) {
+            self.0.register(config);
+            self.1.register(config);
+            self.2.register(config);
+            self.3.register(config);
+        }
+    }
+    #[cfg_attr(any(docsrs, docsrs_dep), doc(hidden))]
+    impl<
+        Err: ErrorRenderer,
+        T0: WebServiceFactory<Err> + 'static,
+        T1: WebServiceFactory<Err> + 'static,
+        T2: WebServiceFactory<Err> + 'static,
+        T3: WebServiceFactory<Err> + 'static,
+        T4: WebServiceFactory<Err> + 'static,
+    > WebServiceFactory<Err> for (T0, T1, T2, T3, T4)
+    {
+        fn register(self, config: &mut WebServiceConfig<Err>) {
+            self.0.register(config);
+            self.1.register(config);
+            self.2.register(config);
+            self.3.register(config);
+            self.4.register(config);
+        }
+    }
+    #[cfg_attr(any(docsrs, docsrs_dep), doc(hidden))]
+    impl<
+        Err: ErrorRenderer,
+        T0: WebServiceFactory<Err> + 'static,
+        T1: WebServiceFactory<Err> + 'static,
+        T2: WebServiceFactory<Err> + 'static,
+        T3: WebServiceFactory<Err> + 'static,
+        T4: WebServiceFactory<Err> + 'static,
+        T5: WebServiceFactory<Err> + 'static,
+    > WebServiceFactory<Err> for (T0, T1, T2, T3, T4, T5)
+    {
+        fn register(self, config: &mut WebServiceConfig<Err>) {
+            self.0.register(config);
+            self.1.register(config);
+            self.2.register(config);
+            self.3.register(config);
+            self.4.register(config);
+            self.5.register(config);
+        }
+    }
+    #[cfg_attr(any(docsrs, docsrs_dep), doc(hidden))]
+    impl<
+        Err: ErrorRenderer,
+        T0: WebServiceFactory<Err> + 'static,
+        T1: WebServiceFactory<Err> + 'static,
+        T2: WebServiceFactory<Err> + 'static,
+        T3: WebServiceFactory<Err> + 'static,
+        T4: WebServiceFactory<Err> + 'static,
+        T5: WebServiceFactory<Err> + 'static,
+        T6: WebServiceFactory<Err> + 'static,
+    > WebServiceFactory<Err> for (T0, T1, T2, T3, T4, T5, T6)
+    {
+        fn register(self, config: &mut WebServiceConfig<Err>) {
+            self.0.register(config);
+            self.1.register(config);
+            self.2.register(config);
+            self.3.register(config);
+            self.4.register(config);
+            self.5.register(config);
+            self.6.register(config);
+        }
+    }
+    #[cfg_attr(any(docsrs, docsrs_dep), doc(hidden))]
+    impl<
+        Err: ErrorRenderer,
+        T0: WebServiceFactory<Err> + 'static,
+        T1: WebServiceFactory<Err> + 'static,
+        T2: WebServiceFactory<Err> + 'static,
+        T3: WebServiceFactory<Err> + 'static,
+        T4: WebServiceFactory<Err> + 'static,
+        T5: WebServiceFactory<Err> + 'static,
+        T6: WebServiceFactory<Err> + 'static,
+        T7: WebServiceFactory<Err> + 'static,
+    > WebServiceFactory<Err> for (T0, T1, T2, T3, T4, T5, T6, T7)
+    {
+        fn register(self, config: &mut WebServiceConfig<Err>) {
+            self.0.register(config);
+            self.1.register(config);
+            self.2.register(config);
+            self.3.register(config);
+            self.4.register(config);
+            self.5.register(config);
+            self.6.register(config);
+            self.7.register(config);
+        }
+    }
+    #[cfg_attr(any(docsrs, docsrs_dep), doc(hidden))]
+    impl<
+        Err: ErrorRenderer,
+        T0: WebServiceFactory<Err> + 'static,
+        T1: WebServiceFactory<Err> + 'static,
+        T2: WebServiceFactory<Err> + 'static,
+        T3: WebServiceFactory<Err> + 'static,
+        T4: WebServiceFactory<Err> + 'static,
+        T5: WebServiceFactory<Err> + 'static,
+        T6: WebServiceFactory<Err> + 'static,
+        T7: WebServiceFactory<Err> + 'static,
+        T8: WebServiceFactory<Err> + 'static,
+    > WebServiceFactory<Err> for (T0, T1, T2, T3, T4, T5, T6, T7, T8)
+    {
+        fn register(self, config: &mut WebServiceConfig<Err>) {
+            self.0.register(config);
+            self.1.register(config);
+            self.2.register(config);
+            self.3.register(config);
+            self.4.register(config);
+            self.5.register(config);
+            self.6.register(config);
+            self.7.register(config);
+            self.8.register(config);
+        }
+    }
+    #[cfg_attr(any(docsrs, docsrs_dep), doc(hidden))]
+    impl<
+        Err: ErrorRenderer,
+        T0: WebServiceFactory<Err> + 'static,
+        T1: WebServiceFactory<Err> + 'static,
+        T2: WebServiceFactory<Err> + 'static,
+        T3: WebServiceFactory<Err> + 'static,
+        T4: WebServiceFactory<Err> + 'static,
+        T5: WebServiceFactory<Err> + 'static,
+        T6: WebServiceFactory<Err> + 'static,
+        T7: WebServiceFactory<Err> + 'static,
+        T8: WebServiceFactory<Err> + 'static,
+        T9: WebServiceFactory<Err> + 'static,
+    > WebServiceFactory<Err> for (T0, T1, T2, T3, T4, T5, T6, T7, T8, T9)
+    {
+        fn register(self, config: &mut WebServiceConfig<Err>) {
+            self.0.register(config);
+            self.1.register(config);
+            self.2.register(config);
+            self.3.register(config);
+            self.4.register(config);
+            self.5.register(config);
+            self.6.register(config);
+            self.7.register(config);
+            self.8.register(config);
+            self.9.register(config);
+        }
+    }
+    #[cfg_attr(any(docsrs, docsrs_dep), doc(hidden))]
+    impl<
+        Err: ErrorRenderer,
+        T0: WebServiceFactory<Err> + 'static,
+        T1: WebServiceFactory<Err> + 'static,
+        T2: WebServiceFactory<Err> + 'static,
+        T3: WebServiceFactory<Err> + 'static,
+        T4: WebServiceFactory<Err> + 'static,
+        T5: WebServiceFactory<Err> + 'static,
+        T6: WebServiceFactory<Err> + 'static,
+        T7: WebServiceFactory<Err> + 'static,
+        T8: WebServiceFactory<Err> + 'static,
+        T9: WebServiceFactory<Err> + 'static,
+        T10: WebServiceFactory<Err> + 'static,
+    > WebServiceFactory<Err> for (T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)
+    {
+        fn register(self, config: &mut WebServiceConfig<Err>) {
+            self.0.register(config);
+            self.1.register(config);
+            self.2.register(config);
+            self.3.register(config);
+            self.4.register(config);
+            self.5.register(config);
+            self.6.register(config);
+            self.7.register(config);
+            self.8.register(config);
+            self.9.register(config);
+            self.10.register(config);
+        }
+    }
+    #[cfg_attr(any(docsrs, docsrs_dep), doc(hidden))]
+    impl<
+        Err: ErrorRenderer,
+        T0: WebServiceFactory<Err> + 'static,
+        T1: WebServiceFactory<Err> + 'static,
+        T2: WebServiceFactory<Err> + 'static,
+        T3: WebServiceFactory<Err> + 'static,
+        T4: WebServiceFactory<Err> + 'static,
+        T5: WebServiceFactory<Err> + 'static,
+        T6: WebServiceFactory<Err> + 'static,
+        T7: WebServiceFactory<Err> + 'static,
+        T8: WebServiceFactory<Err> + 'static,
+        T9: WebServiceFactory<Err> + 'static,
+        T10: WebServiceFactory<Err> + 'static,
+        T11: WebServiceFactory<Err> + 'static,
+    > WebServiceFactory<Err> for (T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11)
+    {
+        fn register(self, config: &mut WebServiceConfig<Err>) {
+            self.0.register(config);
+            self.1.register(config);
+            self.2.register(config);
+            self.3.register(config);
+            self.4.register(config);
+            self.5.register(config);
+            self.6.register(config);
+            self.7.register(config);
+            self.8.register(config);
+            self.9.register(config);
+            self.10.register(config);
+            self.11.register(config);
+        }
+    }
+    #[cfg_attr(any(docsrs, docsrs_dep), doc(hidden))]
+    impl<
+        Err: ErrorRenderer,
+        T0: WebServiceFactory<Err> + 'static,
+        T1: WebServiceFactory<Err> + 'static,
+        T2: WebServiceFactory<Err> + 'static,
+        T3: WebServiceFactory<Err> + 'static,
+        T4: WebServiceFactory<Err> + 'static,
+        T5: WebServiceFactory<Err> + 'static,
+        T6: WebServiceFactory<Err> + 'static,
+        T7: WebServiceFactory<Err> + 'static,
+        T8: WebServiceFactory<Err> + 'static,
+        T9: WebServiceFactory<Err> + 'static,
+        T10: WebServiceFactory<Err> + 'static,
+        T11: WebServiceFactory<Err> + 'static,
+        T12: WebServiceFactory<Err> + 'static,
+    > WebServiceFactory<Err> for (T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12)
+    {
+        fn register(self, config: &mut WebServiceConfig<Err>) {
+            self.0.register(config);
+            self.1.register(config);
+            self.2.register(config);
+            self.3.register(config);
+            self.4.register(config);
+            self.5.register(config);
+            self.6.register(config);
+            self.7.register(config);
+            self.8.register(config);
+            self.9.register(config);
+            self.10.register(config);
+            self.11.register(config);
+            self.12.register(config);
+        }
+    }
+    #[cfg_attr(any(docsrs, docsrs_dep), doc(hidden))]
+    impl<
+        Err: ErrorRenderer,
+        T0: WebServiceFactory<Err> + 'static,
+        T1: WebServiceFactory<Err> + 'static,
+        T2: WebServiceFactory<Err> + 'static,
+        T3: WebServiceFactory<Err> + 'static,
+        T4: WebServiceFactory<Err> + 'static,
+        T5: WebServiceFactory<Err> + 'static,
+        T6: WebServiceFactory<Err> + 'static,
+        T7: WebServiceFactory<Err> + 'static,
+        T8: WebServiceFactory<Err> + 'static,
+        T9: WebServiceFactory<Err> + 'static,
+        T10: WebServiceFactory<Err> + 'static,
+        T11: WebServiceFactory<Err> + 'static,
+        T12: WebServiceFactory<Err> + 'static,
+        T13: WebServiceFactory<Err> + 'static,
+    > WebServiceFactory<Err>
+        for (T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13)
+    {
+        fn register(self, config: &mut WebServiceConfig<Err>) {
+            self.0.register(config);
+            self.1.register(config);
+            self.2.register(config);
+            self.3.register(config);
+            self.4.register(config);
+            self.5.register(config);
+            self.6.register(config);
+            self.7.register(config);
+            self.8.register(config);
+            self.9.register(config);
+            self.10.register(config);
+            self.11.register(config);
+            self.12.register(config);
+            self.13.register(config);
+        }
+    }
+    #[cfg_attr(any(docsrs, docsrs_dep), doc(hidden))]
+    impl<
+        Err: ErrorRenderer,
+        T0: WebServiceFactory<Err> + 'static,
+        T1: WebServiceFactory<Err> + 'static,
+        T2: WebServiceFactory<Err> + 'static,
+        T3: WebServiceFactory<Err> + 'static,
+        T4: WebServiceFactory<Err> + 'static,
+        T5: WebServiceFactory<Err> + 'static,
+        T6: WebServiceFactory<Err> + 'static,
+        T7: WebServiceFactory<Err> + 'static,
+        T8: WebServiceFactory<Err> + 'static,
+        T9: WebServiceFactory<Err> + 'static,
+        T10: WebServiceFactory<Err> + 'static,
+        T11: WebServiceFactory<Err> + 'static,
+        T12: WebServiceFactory<Err> + 'static,
+        T13: WebServiceFactory<Err> + 'static,
+        T14: WebServiceFactory<Err> + 'static,
+    > WebServiceFactory<Err>
+        for (
+            T0,
+            T1,
+            T2,
+            T3,
+            T4,
+            T5,
+            T6,
+            T7,
+            T8,
+            T9,
+            T10,
+            T11,
+            T12,
+            T13,
+            T14,
+        )
+    {
+        fn register(self, config: &mut WebServiceConfig<Err>) {
+            self.0.register(config);
+            self.1.register(config);
+            self.2.register(config);
+            self.3.register(config);
+            self.4.register(config);
+            self.5.register(config);
+            self.6.register(config);
+            self.7.register(config);
+            self.8.register(config);
+            self.9.register(config);
+            self.10.register(config);
+            self.11.register(config);
+            self.12.register(config);
+            self.13.register(config);
+            self.14.register(config);
+        }
+    }
+    #[cfg_attr(any(docsrs, docsrs_dep), doc(hidden))]
+    impl<
+        Err: ErrorRenderer,
+        T0: WebServiceFactory<Err> + 'static,
+        T1: WebServiceFactory<Err> + 'static,
+        T2: WebServiceFactory<Err> + 'static,
+        T3: WebServiceFactory<Err> + 'static,
+        T4: WebServiceFactory<Err> + 'static,
+        T5: WebServiceFactory<Err> + 'static,
+        T6: WebServiceFactory<Err> + 'static,
+        T7: WebServiceFactory<Err> + 'static,
+        T8: WebServiceFactory<Err> + 'static,
+        T9: WebServiceFactory<Err> + 'static,
+        T10: WebServiceFactory<Err> + 'static,
+        T11: WebServiceFactory<Err> + 'static,
+        T12: WebServiceFactory<Err> + 'static,
+        T13: WebServiceFactory<Err> + 'static,
+        T14: WebServiceFactory<Err> + 'static,
+        T15: WebServiceFactory<Err> + 'static,
+    > WebServiceFactory<Err>
+        for (
+            T0,
+            T1,
+            T2,
+            T3,
+            T4,
+            T5,
+            T6,
+            T7,
+            T8,
+            T9,
+            T10,
+            T11,
+            T12,
+            T13,
+            T14,
+            T15,
+        )
+    {
+        fn register(self, config: &mut WebServiceConfig<Err>) {
+            self.0.register(config);
+            self.1.register(config);
+            self.2.register(config);
+            self.3.register(config);
+            self.4.register(config);
+            self.5.register(config);
+            self.6.register(config);
+            self.7.register(config);
+            self.8.register(config);
+            self.9.register(config);
+            self.10.register(config);
+            self.11.register(config);
+            self.12.register(config);
+            self.13.register(config);
+            self.14.register(config);
+            self.15.register(config);
+        }
+    }
+    #[cfg_attr(any(docsrs, docsrs_dep), doc(hidden))]
+    impl<
+        Err: ErrorRenderer,
+        T0: WebServiceFactory<Err> + 'static,
+        T1: WebServiceFactory<Err> + 'static,
+        T2: WebServiceFactory<Err> + 'static,
+        T3: WebServiceFactory<Err> + 'static,
+        T4: WebServiceFactory<Err> + 'static,
+        T5: WebServiceFactory<Err> + 'static,
+        T6: WebServiceFactory<Err> + 'static,
+        T7: WebServiceFactory<Err> + 'static,
+        T8: WebServiceFactory<Err> + 'static,
+        T9: WebServiceFactory<Err> + 'static,
+        T10: WebServiceFactory<Err> + 'static,
+        T11: WebServiceFactory<Err> + 'static,
+        T12: WebServiceFactory<Err> + 'static,
+        T13: WebServiceFactory<Err> + 'static,
+        T14: WebServiceFactory<Err> + 'static,
+        T15: WebServiceFactory<Err> + 'static,
+        T16: WebServiceFactory<Err> + 'static,
+    > WebServiceFactory<Err>
+        for (
+            T0,
+            T1,
+            T2,
+            T3,
+            T4,
+            T5,
+            T6,
+            T7,
+            T8,
+            T9,
+            T10,
+            T11,
+            T12,
+            T13,
+            T14,
+            T15,
+            T16,
+        )
+    {
+        fn register(self, config: &mut WebServiceConfig<Err>) {
+            self.0.register(config);
+            self.1.register(config);
+            self.2.register(config);
+            self.3.register(config);
+            self.4.register(config);
+            self.5.register(config);
+            self.6.register(config);
+            self.7.register(config);
+            self.8.register(config);
+            self.9.register(config);
+            self.10.register(config);
+            self.11.register(config);
+            self.12.register(config);
+            self.13.register(config);
+            self.14.register(config);
+            self.15.register(config);
+            self.16.register(config);
+        }
+    }
+    #[cfg_attr(any(docsrs, docsrs_dep), doc(hidden))]
+    impl<
+        Err: ErrorRenderer,
+        T0: WebServiceFactory<Err> + 'static,
+        T1: WebServiceFactory<Err> + 'static,
+        T2: WebServiceFactory<Err> + 'static,
+        T3: WebServiceFactory<Err> + 'static,
+        T4: WebServiceFactory<Err> + 'static,
+        T5: WebServiceFactory<Err> + 'static,
+        T6: WebServiceFactory<Err> + 'static,
+        T7: WebServiceFactory<Err> + 'static,
+        T8: WebServiceFactory<Err> + 'static,
+        T9: WebServiceFactory<Err> + 'static,
+        T10: WebServiceFactory<Err> + 'static,
+        T11: WebServiceFactory<Err> + 'static,
+        T12: WebServiceFactory<Err> + 'static,
+        T13: WebServiceFactory<Err> + 'static,
+        T14: WebServiceFactory<Err> + 'static,
+        T15: WebServiceFactory<Err> + 'static,
+        T16: WebServiceFactory<Err> + 'static,
+        T17: WebServiceFactory<Err> + 'static,
+    > WebServiceFactory<Err>
+        for (
+            T0,
+            T1,
+            T2,
+            T3,
+            T4,
+            T5,
+            T6,
+            T7,
+            T8,
+            T9,
+            T10,
+            T11,
+            T12,
+            T13,
+            T14,
+            T15,
+            T16,
+            T17,
+        )
+    {
+        fn register(self, config: &mut WebServiceConfig<Err>) {
+            self.0.register(config);
+            self.1.register(config);
+            self.2.register(config);
+            self.3.register(config);
+            self.4.register(config);
+            self.5.register(config);
+            self.6.register(config);
+            self.7.register(config);
+            self.8.register(config);
+            self.9.register(config);
+            self.10.register(config);
+            self.11.register(config);
+            self.12.register(config);
+            self.13.register(config);
+            self.14.register(config);
+            self.15.register(config);
+            self.16.register(config);
+            self.17.register(config);
+        }
+    }
+    #[cfg_attr(any(docsrs, docsrs_dep), doc(hidden))]
+    impl<
+        Err: ErrorRenderer,
+        T0: WebServiceFactory<Err> + 'static,
+        T1: WebServiceFactory<Err> + 'static,
+        T2: WebServiceFactory<Err> + 'static,
+        T3: WebServiceFactory<Err> + 'static,
+        T4: WebServiceFactory<Err> + 'static,
+        T5: WebServiceFactory<Err> + 'static,
+        T6: WebServiceFactory<Err> + 'static,
+        T7: WebServiceFactory<Err> + 'static,
+        T8: WebServiceFactory<Err> + 'static,
+        T9: WebServiceFactory<Err> + 'static,
+        T10: WebServiceFactory<Err> + 'static,
+        T11: WebServiceFactory<Err> + 'static,
+        T12: WebServiceFactory<Err> + 'static,
+        T13: WebServiceFactory<Err> + 'static,
+        T14: WebServiceFactory<Err> + 'static,
+        T15: WebServiceFactory<Err> + 'static,
+        T16: WebServiceFactory<Err> + 'static,
+        T17: WebServiceFactory<Err> + 'static,
+        T18: WebServiceFactory<Err> + 'static,
+    > WebServiceFactory<Err>
+        for (
+            T0,
+            T1,
+            T2,
+            T3,
+            T4,
+            T5,
+            T6,
+            T7,
+            T8,
+            T9,
+            T10,
+            T11,
+            T12,
+            T13,
+            T14,
+            T15,
+            T16,
+            T17,
+            T18,
+        )
+    {
+        fn register(self, config: &mut WebServiceConfig<Err>) {
+            self.0.register(config);
+            self.1.register(config);
+            self.2.register(config);
+            self.3.register(config);
+            self.4.register(config);
+            self.5.register(config);
+            self.6.register(config);
+            self.7.register(config);
+            self.8.register(config);
+            self.9.register(config);
+            self.10.register(config);
+            self.11.register(config);
+            self.12.register(config);
+            self.13.register(config);
+            self.14.register(config);
+            self.15.register(config);
+            self.16.register(config);
+            self.17.register(config);
+            self.18.register(config);
+        }
+    }
+    #[cfg_attr(any(docsrs, docsrs_dep), doc(hidden))]
+    impl<
+        Err: ErrorRenderer,
+        T0: WebServiceFactory<Err> + 'static,
+        T1: WebServiceFactory<Err> + 'static,
+        T2: WebServiceFactory<Err> + 'static,
+        T3: WebServiceFactory<Err> + 'static,
+        T4: WebServiceFactory<Err> + 'static,
+        T5: WebServiceFactory<Err> + 'static,
+        T6: WebServiceFactory<Err> + 'static,
+        T7: WebServiceFactory<Err> + 'static,
+        T8: WebServiceFactory<Err> + 'static,
+        T9: WebServiceFactory<Err> + 'static,
+        T10: WebServiceFactory<Err> + 'static,
+        T11: WebServiceFactory<Err> + 'static,
+        T12: WebServiceFactory<Err> + 'static,
+        T13: WebServiceFactory<Err> + 'static,
+        T14: WebServiceFactory<Err> + 'static,
+        T15: WebServiceFactory<Err> + 'static,
+        T16: WebServiceFactory<Err> + 'static,
+        T17: WebServiceFactory<Err> + 'static,
+        T18: WebServiceFactory<Err> + 'static,
+        T19: WebServiceFactory<Err> + 'static,
+    > WebServiceFactory<Err>
+        for (
+            T0,
+            T1,
+            T2,
+            T3,
+            T4,
+            T5,
+            T6,
+            T7,
+            T8,
+            T9,
+            T10,
+            T11,
+            T12,
+            T13,
+            T14,
+            T15,
+            T16,
+            T17,
+            T18,
+            T19,
+        )
+    {
+        fn register(self, config: &mut WebServiceConfig<Err>) {
+            self.0.register(config);
+            self.1.register(config);
+            self.2.register(config);
+            self.3.register(config);
+            self.4.register(config);
+            self.5.register(config);
+            self.6.register(config);
+            self.7.register(config);
+            self.8.register(config);
+            self.9.register(config);
+            self.10.register(config);
+            self.11.register(config);
+            self.12.register(config);
+            self.13.register(config);
+            self.14.register(config);
+            self.15.register(config);
+            self.16.register(config);
+            self.17.register(config);
+            self.18.register(config);
+            self.19.register(config);
+        }
+    }
+    #[cfg_attr(any(docsrs, docsrs_dep), doc(hidden))]
+    impl<
+        Err: ErrorRenderer,
+        T0: WebServiceFactory<Err> + 'static,
+        T1: WebServiceFactory<Err> + 'static,
+        T2: WebServiceFactory<Err> + 'static,
+        T3: WebServiceFactory<Err> + 'static,
+        T4: WebServiceFactory<Err> + 'static,
+        T5: WebServiceFactory<Err> + 'static,
+        T6: WebServiceFactory<Err> + 'static,
+        T7: WebServiceFactory<Err> + 'static,
+        T8: WebServiceFactory<Err> + 'static,
+        T9: WebServiceFactory<Err> + 'static,
+        T10: WebServiceFactory<Err> + 'static,
+        T11: WebServiceFactory<Err> + 'static,
+        T12: WebServiceFactory<Err> + 'static,
+        T13: WebServiceFactory<Err> + 'static,
+        T14: WebServiceFactory<Err> + 'static,
+        T15: WebServiceFactory<Err> + 'static,
+        T16: WebServiceFactory<Err> + 'static,
+        T17: WebServiceFactory<Err> + 'static,
+        T18: WebServiceFactory<Err> + 'static,
+        T19: WebServiceFactory<Err> + 'static,
+        T20: WebServiceFactory<Err> + 'static,
+    > WebServiceFactory<Err>
+        for (
+            T0,
+            T1,
+            T2,
+            T3,
+            T4,
+            T5,
+            T6,
+            T7,
+            T8,
+            T9,
+            T10,
+            T11,
+            T12,
+            T13,
+            T14,
+            T15,
+            T16,
+            T17,
+            T18,
+            T19,
+            T20,
+        )
+    {
+        fn register(self, config: &mut WebServiceConfig<Err>) {
+            self.0.register(config);
+            self.1.register(config);
+            self.2.register(config);
+            self.3.register(config);
+            self.4.register(config);
+            self.5.register(config);
+            self.6.register(config);
+            self.7.register(config);
+            self.8.register(config);
+            self.9.register(config);
+            self.10.register(config);
+            self.11.register(config);
+            self.12.register(config);
+            self.13.register(config);
+            self.14.register(config);
+            self.15.register(config);
+            self.16.register(config);
+            self.17.register(config);
+            self.18.register(config);
+            self.19.register(config);
+            self.20.register(config);
+        }
+    }
+    #[cfg_attr(any(docsrs, docsrs_dep), doc(hidden))]
+    impl<
+        Err: ErrorRenderer,
+        T0: WebServiceFactory<Err> + 'static,
+        T1: WebServiceFactory<Err> + 'static,
+        T2: WebServiceFactory<Err> + 'static,
+        T3: WebServiceFactory<Err> + 'static,
+        T4: WebServiceFactory<Err> + 'static,
+        T5: WebServiceFactory<Err> + 'static,
+        T6: WebServiceFactory<Err> + 'static,
+        T7: WebServiceFactory<Err> + 'static,
+        T8: WebServiceFactory<Err> + 'static,
+        T9: WebServiceFactory<Err> + 'static,
+        T10: WebServiceFactory<Err> + 'static,
+        T11: WebServiceFactory<Err> + 'static,
+        T12: WebServiceFactory<Err> + 'static,
+        T13: WebServiceFactory<Err> + 'static,
+        T14: WebServiceFactory<Err> + 'static,
+        T15: WebServiceFactory<Err> + 'static,
+        T16: WebServiceFactory<Err> + 'static,
+        T17: WebServiceFactory<Err> + 'static,
+        T18: WebServiceFactory<Err> + 'static,
+        T19: WebServiceFactory<Err> + 'static,
+        T20: WebServiceFactory<Err> + 'static,
+        T21: WebServiceFactory<Err> + 'static,
+    > WebServiceFactory<Err>
+        for (
+            T0,
+            T1,
+            T2,
+            T3,
+            T4,
+            T5,
+            T6,
+            T7,
+            T8,
+            T9,
+            T10,
+            T11,
+            T12,
+            T13,
+            T14,
+            T15,
+            T16,
+            T17,
+            T18,
+            T19,
+            T20,
+            T21,
+        )
+    {
+        fn register(self, config: &mut WebServiceConfig<Err>) {
+            self.0.register(config);
+            self.1.register(config);
+            self.2.register(config);
+            self.3.register(config);
+            self.4.register(config);
+            self.5.register(config);
+            self.6.register(config);
+            self.7.register(config);
+            self.8.register(config);
+            self.9.register(config);
+            self.10.register(config);
+            self.11.register(config);
+            self.12.register(config);
+            self.13.register(config);
+            self.14.register(config);
+            self.15.register(config);
+            self.16.register(config);
+            self.17.register(config);
+            self.18.register(config);
+            self.19.register(config);
+            self.20.register(config);
+            self.21.register(config);
+        }
+    }
+    #[cfg_attr(any(docsrs, docsrs_dep), doc(hidden))]
+    impl<
+        Err: ErrorRenderer,
+        T0: WebServiceFactory<Err> + 'static,
+        T1: WebServiceFactory<Err> + 'static,
+        T2: WebServiceFactory<Err> + 'static,
+        T3: WebServiceFactory<Err> + 'static,
+        T4: WebServiceFactory<Err> + 'static,
+        T5: WebServiceFactory<Err> + 'static,
+        T6: WebServiceFactory<Err> + 'static,
+        T7: WebServiceFactory<Err> + 'static,
+        T8: WebServiceFactory<Err> + 'static,
+        T9: WebServiceFactory<Err> + 'static,
+        T10: WebServiceFactory<Err> + 'static,
+        T11: WebServiceFactory<Err> + 'static,
+        T12: WebServiceFactory<Err> + 'static,
+        T13: WebServiceFactory<Err> + 'static,
+        T14: WebServiceFactory<Err> + 'static,
+        T15: WebServiceFactory<Err> + 'static,
+        T16: WebServiceFactory<Err> + 'static,
+        T17: WebServiceFactory<Err> + 'static,
+        T18: WebServiceFactory<Err> + 'static,
+        T19: WebServiceFactory<Err> + 'static,
+        T20: WebServiceFactory<Err> + 'static,
+        T21: WebServiceFactory<Err> + 'static,
+        T22: WebServiceFactory<Err> + 'static,
+    > WebServiceFactory<Err>
+        for (
+            T0,
+            T1,
+            T2,
+            T3,
+            T4,
+            T5,
+            T6,
+            T7,
+            T8,
+            T9,
+            T10,
+            T11,
+            T12,
+            T13,
+            T14,
+            T15,
+            T16,
+            T17,
+            T18,
+            T19,
+            T20,
+            T21,
+            T22,
+        )
+    {
+        fn register(self, config: &mut WebServiceConfig<Err>) {
+            self.0.register(config);
+            self.1.register(config);
+            self.2.register(config);
+            self.3.register(config);
+            self.4.register(config);
+            self.5.register(config);
+            self.6.register(config);
+            self.7.register(config);
+            self.8.register(config);
+            self.9.register(config);
+            self.10.register(config);
+            self.11.register(config);
+            self.12.register(config);
+            self.13.register(config);
+            self.14.register(config);
+            self.15.register(config);
+            self.16.register(config);
+            self.17.register(config);
+            self.18.register(config);
+            self.19.register(config);
+            self.20.register(config);
+            self.21.register(config);
+            self.22.register(config);
+        }
+    }
+    #[cfg_attr(any(docsrs, docsrs_dep), doc(hidden))]
+    impl<
+        Err: ErrorRenderer,
+        T0: WebServiceFactory<Err> + 'static,
+        T1: WebServiceFactory<Err> + 'static,
+        T2: WebServiceFactory<Err> + 'static,
+        T3: WebServiceFactory<Err> + 'static,
+        T4: WebServiceFactory<Err> + 'static,
+        T5: WebServiceFactory<Err> + 'static,
+        T6: WebServiceFactory<Err> + 'static,
+        T7: WebServiceFactory<Err> + 'static,
+        T8: WebServiceFactory<Err> + 'static,
+        T9: WebServiceFactory<Err> + 'static,
+        T10: WebServiceFactory<Err> + 'static,
+        T11: WebServiceFactory<Err> + 'static,
+        T12: WebServiceFactory<Err> + 'static,
+        T13: WebServiceFactory<Err> + 'static,
+        T14: WebServiceFactory<Err> + 'static,
+        T15: WebServiceFactory<Err> + 'static,
+        T16: WebServiceFactory<Err> + 'static,
+        T17: WebServiceFactory<Err> + 'static,
+        T18: WebServiceFactory<Err> + 'static,
+        T19: WebServiceFactory<Err> + 'static,
+        T20: WebServiceFactory<Err> + 'static,
+        T21: WebServiceFactory<Err> + 'static,
+        T22: WebServiceFactory<Err> + 'static,
+        T23: WebServiceFactory<Err> + 'static,
+    > WebServiceFactory<Err>
+        for (
+            T0,
+            T1,
+            T2,
+            T3,
+            T4,
+            T5,
+            T6,
+            T7,
+            T8,
+            T9,
+            T10,
+            T11,
+            T12,
+            T13,
+            T14,
+            T15,
+            T16,
+            T17,
+            T18,
+            T19,
+            T20,
+            T21,
+            T22,
+            T23,
+        )
+    {
+        fn register(self, config: &mut WebServiceConfig<Err>) {
+            self.0.register(config);
+            self.1.register(config);
+            self.2.register(config);
+            self.3.register(config);
+            self.4.register(config);
+            self.5.register(config);
+            self.6.register(config);
+            self.7.register(config);
+            self.8.register(config);
+            self.9.register(config);
+            self.10.register(config);
+            self.11.register(config);
+            self.12.register(config);
+            self.13.register(config);
+            self.14.register(config);
+            self.15.register(config);
+            self.16.register(config);
+            self.17.register(config);
+            self.18.register(config);
+            self.19.register(config);
+            self.20.register(config);
+            self.21.register(config);
+            self.22.register(config);
+            self.23.register(config);
+        }
+    }
 }
 
 #[cfg(test)]
