@@ -345,7 +345,7 @@ where
 // #[rustfmt::skip]
 mod m {
     use super::*;
-    use variadics_please::all_tuples_enumerated;
+    // use variadics_please::all_tuples_enumerated;
 
     // all_tuples_enumerated!(#[doc(fake_variadic)] tuple_web_service, 1, 24, T);
 

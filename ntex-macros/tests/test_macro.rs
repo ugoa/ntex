@@ -67,9 +67,27 @@ async fn delete_param_test(_: Path<String>) -> HttpResponseBuilder {
     HttpResponse::NoContent()
 }
 
-#[web_get("/test/{param}")]
-async fn get_param_test(_: Path<String>) -> HttpResponse {
-    HttpResponse::Ok().finish()
+// #[web_get("/test/{param}")]
+// async fn get_param_test(_: Path<String>) -> HttpResponse {
+//     HttpResponse::Ok().finish()
+// }
+
+#[allow(non_camel_case_types)]
+pub struct get_param_test;
+impl ntex::web::dev::WebServiceFactory<ntex::web::DefaultError> for get_param_test {
+    fn register(
+        self,
+        __config: &mut ntex::web::dev::WebServiceConfig<ntex::web::DefaultError>,
+    ) {
+        async fn get_param_test(_: Path<String>) -> HttpResponse {
+            HttpResponse::Ok().finish()
+        }
+        let __resource = ntex::web::Resource::new("/test/{param}")
+            .name("get_param_test")
+            .guard(ntex::web::guard::Get())
+            .to(get_param_test);
+        ntex::web::dev::WebServiceFactory::register(__resource, __config)
+    }
 }
 
 #[ntex::test]
