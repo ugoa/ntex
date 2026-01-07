@@ -17,11 +17,11 @@ name = "ntex_server"
 path = "src/lib.rs"
 
 [dependencies]
-ntex-io = "3"
-ntex-net = "3.2"
-ntex-service = "4"
-ntex-rt = "3"
-ntex-util = "3"
+ntex-io = {version = "3", path = "../ntex-io" }
+ntex-net = {version = "3.2", path = "../ntex-net" }
+ntex-service = {version = "4", path = "../ntex-service" }
+ntex-rt = {version = "3", path = "../ntex-rt" }
+ntex-util = {version = "3", path = "../ntex-util" }
 
 async-channel = { workspace = true }
 atomic-waker = { workspace = true }

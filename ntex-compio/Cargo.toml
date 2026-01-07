@@ -23,11 +23,11 @@ default = []
 compio = ["ntex-rt/compio", "compio-io", "compio-net", "compio-runtime", "compio-driver"]
 
 [dependencies]
-ntex-bytes = "1"
-ntex-io = "3"
-ntex-util = "3"
-ntex-rt = "3.3"
-ntex-service = "4"
+ntex-bytes = {version = "1", path = "../ntex-bytes" }
+ntex-io = {version = "3", path = "../ntex-io" }
+ntex-util = {version = "3", path = "../ntex-util" }
+ntex-rt = {version = "3.3", path = "../ntex-rt" }
+ntex-service = {version = "4", path = "../ntex-service" }
 log = { workspace = true }
 
 compio-buf = "0.7"

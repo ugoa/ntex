@@ -17,9 +17,9 @@ name = "ntex_util"
 path = "src/lib.rs"
 
 [dependencies]
-ntex-bytes = "1"
-ntex-service = "4"
-ntex-rt = "3"
+ntex-bytes = {version = "1", path = "../ntex-bytes" }
+ntex-service = {version = "4", path = "../ntex-service" }
+ntex-rt = {version = "3", path = "../ntex-rt" }
 
 foldhash = { workspace = true }
 bitflags = { workspace = true }

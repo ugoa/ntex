@@ -67,19 +67,20 @@ ws = ["dep:sha1"]
 no-test-logging = []
 
 [dependencies]
-ntex-bytes = "1"
-ntex-codec = "1"
-ntex-http = "1"
-ntex-router = "1"
-ntex-service = "4"
-ntex-macros = "0.2"
-ntex-util = "3.4"
-ntex-server = "3.4"
+ntex-bytes = {version = "1", path = "../ntex-bytes" }
+ntex-codec = {version = "1", path = "../ntex-codec" }
+ntex-http = { version = "1", path = "../ntex-http"}
+ntex-router = {versioon = "1", path = "../ntex-router"}
+ntex-service = {version = "4", path = "../ntex-service" }
+ntex-macros = {version = "0.2", path = "../ntex-macros" }
+ntex-util = {version = "3.4", path = "../ntex-util" }
+ntex-server = {version = "3.4", path = "../ntex-server" }
+# ntex-h2 = {version = "3.1", path = "../ntex-h2" }
 ntex-h2 = "3.1"
-ntex-rt = "3.4"
-ntex-io = "3.3"
-ntex-net = "3.4"
-ntex-tls = "3.1"
+ntex-rt = {version = "3.4", path = "../ntex-rt" }
+ntex-io = {version = "3.3", path = "../ntex-io" }
+ntex-net = {version = "3.4", path = "../ntex-net" }
+ntex-tls = {version = "3.1", path = "../ntex-tls" }
 
 base64 = { workspace = true }
 bitflags = { workspace = true }

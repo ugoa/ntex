@@ -17,10 +17,10 @@ name = "ntex_io"
 path = "src/lib.rs"
 
 [dependencies]
-ntex-codec = "1"
-ntex-bytes = "1"
-ntex-util = "3"
-ntex-service = "4"
+ntex-codec = {version = "1", path = "../ntex-codec" }
+ntex-bytes = {version = "1", path = "../ntex-bytes" }
+ntex-util = {version = "3", path = "../ntex-util" }
+ntex-service = {version = "4", path = "../ntex-service" }
 
 bitflags = { workspace = true }
 log = { workspace = true }

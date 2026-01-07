@@ -17,4 +17,4 @@ name = "ntex_codec"
 path = "src/lib.rs"
 
 [dependencies]
-ntex-bytes = "1.0"
+ntex-bytes = {version = "1.0", path = "../ntex-bytes" }

@@ -17,9 +17,10 @@ name = "ntex_tokio"
 path = "src/lib.rs"
 
 [dependencies]
-ntex-bytes = "1"
-ntex-io = "3"
-ntex-util = "3"
-ntex-service = "4"
+ntex-bytes = {version = "1", path = "../ntex-bytes" }
+ntex-io = {version = "3", path = "../ntex-io" }
+ntex-util = {version = "3", path = "../ntex-util" }
+ntex-service = {version = "4", path = "../ntex-service" }
+
 log = { workspace = true }
 tokio = { version = "1", default-features = false, features = ["rt", "net", "sync", "signal"] }

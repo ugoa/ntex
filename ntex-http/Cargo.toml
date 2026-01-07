@@ -16,7 +16,7 @@ name = "ntex_http"
 path = "src/lib.rs"
 
 [dependencies]
-ntex-bytes = "1"
+ntex-bytes = {version = "1", path = "../ntex-bytes" }
 
 foldhash = { workspace = true }
 futures-core = { workspace = true }

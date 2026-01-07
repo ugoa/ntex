@@ -18,7 +18,8 @@ path = "src/lib.rs"
 default = ["http"]
 
 [dependencies]
-ntex-bytes = "1"
+ntex-bytes = {version = "1", path = "../ntex-bytes" }
+
 serde = { workspace = true }
 log = { workspace = true }
 http = { version = "1", optional = true }

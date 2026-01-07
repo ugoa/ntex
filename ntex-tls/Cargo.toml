@@ -27,11 +27,11 @@ rustls = ["tls_rust", "tls_rust/std"]
 rustls-ring = ["tls_rust", "tls_rust/ring", "tls_rust/std"]
 
 [dependencies]
-ntex-bytes = "1"
-ntex-io = "3"
-ntex-util = "3"
-ntex-service = "4"
-ntex-net = "3"
+ntex-bytes = {version = "1", path = "../ntex-bytes" }
+ntex-io = {version = "3", path = "../ntex-io" }
+ntex-util = {version = "3", path = "../ntex-util" }
+ntex-service = {version = "4", path = "../ntex-service" }
+ntex-net = {version = "3", path = "../ntex-net" }
 
 log = { workspace = true }
 

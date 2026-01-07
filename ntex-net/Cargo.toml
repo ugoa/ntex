@@ -32,12 +32,12 @@ io-uring = ["ntex-neon/io-uring", "socket2"]
 io-uring-compat = []
 
 [dependencies]
-ntex-service = "4"
-ntex-bytes = "1"
-ntex-http = "1"
-ntex-io = "3.3.1"
-ntex-rt = "3.3"
-ntex-util = "3"
+ntex-service = {version = "4", path = "../ntex-service" }
+ntex-bytes = {version = "1", path = "../ntex-bytes" }
+ntex-http = {version = "1", path = "../ntex-http" }
+ntex-io = {version = "3.3.1", path = "../ntex-io" }
+ntex-rt = {version = "3.3", path = "../ntex-rt" }
+ntex-util = {version = "3", path = "../ntex-util" }
 
 ntex-tokio = { version = "3.1.0", optional = true }
 ntex-compio = { version = "3.4.0", optional = true }
